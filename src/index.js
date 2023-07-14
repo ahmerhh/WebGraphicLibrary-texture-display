@@ -66,5 +66,32 @@ export default class TextureDisplay {
     this.planeFacesBuffer = new Buffer(gl, gl.ELEMENT_ARRAY_BUFFER, planeGeometry.faces);
   }
 
+  /**
+   * @method render
+   * @public
+   * @param {uint} [unit = 0]
+   */
+  render(unit = 0) {
+    this.program.bind();
+    this.planeVerticesBuffer.bind();
+    this.program.setAttributePointer('aPosition');
+    this.planeUvsBuffer.bind();
+    this.program.setAttributePointer('aUv');
+    this.planeFacesBuffer.bind();
+    
+    this.program.setUniform('uTexture', this.texture.bind(unit));
 
+    this.gl.drawElements(this.gl.TRIANGLES, this.planeFacesBuffer.length, this.gl.UNSIGNED_SHORT, 0);
+  }
+
+  /**
+   * @method dispose
+   * @public
+   */
+  dispose() {
+    this.program.dispose();
+    this.planeVerticesBuffer.dispose();
+    this.planeUvsBuffer.dispose();
+    this.planeFacesBuffer.dispose();
+  }
 }
