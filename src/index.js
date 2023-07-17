@@ -1,6 +1,6 @@
-import getPlaneGeometry from '@ahmerhh/WebGraphicLibrary_geo-plane';
-// import Program from '@ahmerhh/gl-program';
-// import Buffer from '@ahmerhh/gl-buffer';
+import getPlaneGeometry from '@ahmerhh/WebGraphicLibrary-geo-plane';
+// import Program from '@ahmerhh/WebGraphicLibrary-program';
+import Buffer from '@ahmerhh/WebGraphicLibrary-buffer';
 
 /**
  * @class TextureDisplay
