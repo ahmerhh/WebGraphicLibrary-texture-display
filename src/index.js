@@ -1,5 +1,5 @@
 import getPlaneGeometry from '@ahmerhh/WebGraphicLibrary-geo-plane';
-// import Program from '@ahmerhh/WebGraphicLibrary-program';
+import Program from '@ahmerhh/WebGraphicLibrary-program';
 import Buffer from '@ahmerhh/WebGraphicLibrary-buffer';
 
 /**
