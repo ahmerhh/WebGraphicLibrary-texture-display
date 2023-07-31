@@ -7,6 +7,7 @@ const canvasElement = document.createElement('canvas');
 const glContext = getGl(canvasElement);
 const texture = new Texture(glContext, glContext.TEXTURE_2D, 512, 512);
 
+// Test: TextureDisplay should be instantiable
 test('should be instantiable', t => {
   t.plan(1);
 
@@ -15,6 +16,7 @@ test('should be instantiable', t => {
   t.ok(textureDisplay instanceof TextureDisplay, 'TextureDisplay instance created');
 });
 
+// Test: TextureDisplay should bind texture, program, and buffers when rendering
 test('should bind texture, program, and buffers when rendering', t => {
   t.plan(5);
 
@@ -29,6 +31,7 @@ test('should bind texture, program, and buffers when rendering', t => {
   t.equal(glContext.getParameter(glContext.ELEMENT_ARRAY_BUFFER_BINDING), textureDisplay.planeFacesBuffer.buffer, 'Element buffer is correct');
 });
 
+// Test: TextureDisplay should not delete the texture when disposed
 test('should not delete texture when disposed', t => {
   t.plan(1);
 
@@ -38,4 +41,5 @@ test('should not delete texture when disposed', t => {
   t.ok(texture.texture, 'Texture still exists');
 });
 
+// Close the window when the tests are finished
 test.onFinish(window.close.bind(window));
